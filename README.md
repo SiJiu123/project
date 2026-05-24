@@ -1,11 +1,13 @@
 # Unified Deconvolution Pipeline
 
-This repository provides a unified entrypoint to run and evaluate 5 models on pre-split train/test h5ad datasets:
+This repository provides a unified entrypoint to run and evaluate multiple models on pre-split train/test h5ad datasets:
 - `scaden`
 - `scpdeconv`
 - `tape`
 - `music`
 - `cibersortx` (external prediction drop-in)
+- `supdeconv` (formerly demo1: supervised pseudo-bulk neural baseline)
+- `protodeconv` (formerly demo2: prototype-aligned neural deconvolution)
 
 ## 1. Current Layout
 
@@ -116,7 +118,8 @@ From project root:
 ```
 
 Supported `MODEL`:
-- `scaden`, `scpdeconv`, `tape`, `music`, `cibersortx`, `all`
+- `scaden`, `scpdeconv`, `tape`, `music`, `cibersortx`, `supdeconv`, `protodeconv`, `all`
+- aliases: `demo1 -> supdeconv`, `demo2 -> protodeconv`
 - multiple models are also supported with commas, for example `MODEL=scaden,tape,scpdeconv`
 
 Supported `STAGES`:

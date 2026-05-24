@@ -1,4 +1,5 @@
 from pipeline.adapters.cibersortx_adapter import CIBERSORTxAdapter
+from pipeline.adapters.demo_deconv_adapter import ProtoDeconvAdapter, SupDeconvAdapter
 from pipeline.adapters.music_adapter import MuSiCAdapter
 from pipeline.adapters.scaden_adapter import ScadenAdapter
 from pipeline.adapters.scpdeconv_adapter import ScpDeconvAdapter
@@ -11,6 +12,8 @@ REGISTRY = {
     "tape": TAPEAdapter,
     "music": MuSiCAdapter,
     "cibersortx": CIBERSORTxAdapter,
+    "supdeconv": SupDeconvAdapter,
+    "protodeconv": ProtoDeconvAdapter,
 }
 
 
@@ -26,6 +29,12 @@ def normalize_model_name(model_name: str) -> str:
         "cibersortx": "cibersortx",
         "cibersort": "cibersortx",
         "csx": "cibersortx",
+        "demo1": "supdeconv",
+        "supdeconv": "supdeconv",
+        "superviseddeconv": "supdeconv",
+        "demo2": "protodeconv",
+        "protodeconv": "protodeconv",
+        "prototype": "protodeconv",
     }
     return aliases.get(name, name)
 

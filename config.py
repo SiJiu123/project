@@ -3,7 +3,7 @@ from pathlib import Path
 # Top-level config style (default): edit these values directly.
 PROJECT_ROOT = Path(__file__).resolve().parent
 
-MODEL = "scaden"  # scaden | scpdeconv | tape | music | cibersortx | all
+MODEL = "scaden"  # scaden | scpdeconv | tape | music | cibersortx | supdeconv | protodeconv | all
 DATASET = "human_lung"
 TRAIN_ID = "296C"
 TEST_ID = "302C"
