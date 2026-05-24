@@ -203,7 +203,7 @@ class PipelineOrchestrator:
                 self.dataset,
                 self.reference_id,
                 self.bulk_id,
-                REGISTRY.keys(),
+                model_names,
             )
             baseline = config.PARITY_BASELINES.get(self.dataset)
             if baseline is not None:
@@ -212,10 +212,10 @@ class PipelineOrchestrator:
                     self.dataset,
                     baseline,
                     self.standard_dir,
-                    REGISTRY.keys(),
+                    model_names,
                 )
             # Always attempt a combined figure from available model eval artifacts.
-            render_typewise_boxplot(self.results_root, REGISTRY.keys())
+            render_typewise_boxplot(self.results_root, model_names)
 
     def _evaluate(self, adapter) -> dict:
         from pipeline.common.metrics import compute_metrics, compute_typewise_ccc

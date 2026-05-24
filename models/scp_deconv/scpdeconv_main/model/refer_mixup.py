@@ -4,7 +4,6 @@ import pandas as pd
 import anndata as ad
 import numpy as np
 import scipy
-import scanpy as sc
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -67,8 +66,8 @@ class ReferMixup(object):
             used_features = list(used_features)
 
         elif self.HVP_num > 0:
-            sc.pp.highly_variable_genes(target_data, n_top_genes=self.HVP_num)
-            HVPs = set(target_data.var[target_data.var.highly_variable].index)
+            target_x = pd.DataFrame(target_data.X, columns=target_data.var_names)
+            HVPs = set(target_x.var(axis=0).sort_values(ascending=False).head(self.HVP_num).index)
             used_features = list(used_features.union(HVPs))
 
         return used_features
@@ -230,6 +229,8 @@ class ReferMixup(object):
             sys.exit(1)
 
         target_y = target_y[self.type_list]
+        target_y.index = target_y.index.astype(str)
+        target_data.obs_names = target_data.obs_names.astype(str)
         target_data.obs = target_y.loc[target_data.obs_names].copy()
         return target_data
 

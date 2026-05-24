@@ -7,7 +7,6 @@ import random
 import numpy as np
 import pandas as pd
 import anndata as ad
-import scanpy as sc
 from collections import defaultdict
 import warnings
 warnings.filterwarnings('ignore')
