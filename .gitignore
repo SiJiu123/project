@@ -1,0 +1,53 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Local environment and secrets
+.env
+.venv/
+venv/
+env/
+
+# Large data and generated artifacts
+*.h5ad
+data/
+work/
+results/
+save_models/
+
+# Model/runtime generated files
+*.rds
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.xlsx
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Vendored model example outputs and bulky docs/assets
+models/**/.ipynb_checkpoints/
+models/**/Result/
+models/**/results/
+models/**/data/
+models/**/build/
+models/**/dist/
+models/**/*.egg-info/
+models/**/.idea/
+models/**/README_files/
+models/**/vignettes/
+models/**/Experiments/
+models/**/Test/
+models/scaden/scaden-master/example_data/
